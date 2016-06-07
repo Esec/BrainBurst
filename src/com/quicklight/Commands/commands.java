@@ -45,8 +45,8 @@ public class commands {
             sender.sendMessage("§a§l/" + label + " admin point add    【玩家】【货币】 【数量】      §d§l-§e§l 增加指定玩家指定货币");
             sender.sendMessage("§a§l/" + label + " admin point addll  【货币】【数量】              §d§l-§e§l 增加所有玩家指定货币");
             sender.sendMessage("§a§l/" + label + " admin point remove 【玩家】【货币】 【数量】      §d§l-§e§l 删除指定玩家指定货币");
-            sender.sendMessage("§a§l/" + label + " admin point select 【玩家】【货币】 【数量】      §d§l-§e§l 查询指定玩家指定货币");
-            sender.sendMessage("§a§l/" + label + " admin point clear  【玩家】【货币】 【数量】      §d§l-§e§l 清空指定玩家指定货币");
+            sender.sendMessage("§a§l/" + label + " admin point select 【玩家】      §d§l-§e§l 查询指定玩家货币");
+            sender.sendMessage("§a§l/" + label + " admin point clear  【玩家】【货币】      §d§l-§e§l 清空指定玩家指定货币");
         } else if (args.length >= 3) {
             if (args[2].equalsIgnoreCase("add")) {
                 //跳转增加
@@ -58,11 +58,11 @@ public class commands {
                 //跳转删除
                 mySQL.pointdelete(sender, args[3], args[4], args[5]);
             } else if (args[2].equalsIgnoreCase("select")) {
-                //跳转增加全体
-                mySQL.pointadd(sender, args[3], args[4], args[5]);
+                //跳转查询
+                mySQL.pointselect(sender, args[3]);
             } else if (args[2].equalsIgnoreCase("clear")) {
-                //跳转增加全体
-                mySQL.pointadd(sender, args[3], args[4], args[5]);
+                //跳转清空
+                mySQL.pointclear(sender, args[3], args[4]);
             }
         }
     }

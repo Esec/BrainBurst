@@ -174,9 +174,9 @@ public class MySQL {
             statement.setString(2, arg);
             int i = statement.executeUpdate();
             if (i == 1) {
-                sender.sendMessage("为" + arg + "添加" + arg + arg2 + "点成功");
+                sender.sendMessage("为" + arg + "添加" + arg1 + arg2 + "点成功");
             } else {
-                sender.sendMessage("为" + arg + "添加" + arg + arg2 + "点失败");
+                sender.sendMessage("为" + arg + "添加" + arg1 + arg2 + "点失败");
             }
         } catch (SQLException e1) {
             sender.sendMessage(Main.prefix + "§4§l查询失败请检查数据库连接");
@@ -222,6 +222,7 @@ public class MySQL {
         }
     }
 
+    //删除指定玩家指定货币
     public void pointdelete(CommandSender sender, String arg, String arg1, String arg2) {
         int score = 0;
         try {
@@ -257,6 +258,54 @@ public class MySQL {
                 sender.sendMessage("为" + arg + "删除" + arg1 + arg2 + "点成功");
             } else {
                 sender.sendMessage("为" + arg + "删除" + arg1 + arg2 + "点失败");
+            }
+        } catch (SQLException e1) {
+            sender.sendMessage(Main.prefix + "§4§l查询失败请检查数据库连接");
+        }
+    }
+
+    //查询指定玩家货币
+    public void pointselect(CommandSender sender, String arg) {
+        try {
+            connection = openConnection();
+            //查询数据库获取玩家默认积分
+            String sql = "SELECT hun,zui,lian FROM brainburst WHERE username=?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, arg);
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                int hun = rs.getInt(1);
+                int zui = rs.getInt(2);
+                int lian = rs.getInt(3);
+                sender.sendMessage("玩家" + arg + "共有魂:" + hun + "点,罪:" + zui + "点,炼:" + lian + "点");
+            }
+        } catch (SQLException e1) {
+            sender.sendMessage(Main.prefix + "§4§l查询失败请检查数据库连接");
+        }
+    }
+
+    //情况指定玩家指定货币
+    public void pointclear(CommandSender sender, String arg, String arg1) {
+        int score = 0;
+        try {
+            connection = openConnection();
+            if (arg1.equalsIgnoreCase("1")) {
+                arg1 = "hun";
+            } else if (arg1.equalsIgnoreCase("2")) {
+                arg1 = "zui";
+            } else if (arg1.equalsIgnoreCase("3")) {
+                arg1 = "lian";
+            } else {
+                sender.sendMessage(Main.prefix + "§4§l参数错误");
+            }
+            String sql = "UPDATE brainburst SET " + arg1 + "=0 WHERE username=?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, arg);
+            int i = statement.executeUpdate();
+            if (i == 1) {
+                sender.sendMessage("为" + arg + "清空" + arg1 + "成功");
+            } else {
+                sender.sendMessage("为" + arg + "清空" + arg1 + "失败");
             }
         } catch (SQLException e1) {
             sender.sendMessage(Main.prefix + "§4§l查询失败请检查数据库连接");
