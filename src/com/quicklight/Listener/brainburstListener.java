@@ -72,7 +72,7 @@ public class brainburstListener implements Listener {
 
     @EventHandler
     void onM(InventoryClickEvent e) {
-        if (e.getClickedInventory().getName().equals("§6§lBrainBurst")) {
+        if (e.getClickedInventory().getName().equals(" §2§m§l  §3§m§l  §4§lWelcome §5§lto §7§lthe §6§lAccel World§3§m§l  §2§m§l §2§m§l ")) {
             e.setCancelled(true);//禁止拖动
             if (e.getCurrentItem() != null) {//点到空气报错
                 if (e.getCurrentItem().getItemMeta().hasDisplayName()) {//判断是不是有名字
@@ -108,17 +108,13 @@ public class brainburstListener implements Listener {
                         e.getWhoClicked().sendMessage("你点了分解");
                     } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l翅膀功能")) {
                         e.getWhoClicked().sendMessage("你点了翅膀");
-                    }
-                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l性别功能")) {
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l性别功能")) {
                         e.getWhoClicked().sendMessage("你点了性别");
-                    }
-                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l渡劫功能")) {
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l渡劫功能")) {
                         e.getWhoClicked().sendMessage("你点了渡劫");
-                    }
-                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l飞升功能")) {
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l飞升功能")) {
                         e.getWhoClicked().sendMessage("你点了飞升");
-                    }
-                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l商城功能")) {
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l商城功能")) {
                         e.getWhoClicked().sendMessage("你点了商城");
                     }
                 }

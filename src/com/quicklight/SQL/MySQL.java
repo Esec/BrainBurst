@@ -325,7 +325,7 @@ public class MySQL {
         } else {
             return;
         }
-        Inventory inv = Bukkit.createInventory(p, 36, "§6§lBrainBurst");
+        Inventory inv = Bukkit.createInventory(p, 36, " §2§m§l  §3§m§l  §4§lWelcome §5§lto §7§lthe §6§lAccel World§3§m§l  §2§m§l §2§m§l ");
         p.openInventory(inv);
         ItemStack qianghua = new ItemStack(Material.ANVIL);
         ItemMeta meta = qianghua.getItemMeta();
