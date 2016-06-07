@@ -51,14 +51,18 @@ public class commands {
             if (args[2].equalsIgnoreCase("add")) {
                 //跳转增加
                 mySQL.pointadd(sender, args[3], args[4], args[5]);
-            } else if (args[1].equalsIgnoreCase("addall")) {
+            } else if (args[2].equalsIgnoreCase("addall")) {
                 //跳转增加全体
-            } else if (args[1].equalsIgnoreCase("remove")) {
+                mySQL.pointaddall(sender, args[3], args[4]);
+            } else if (args[2].equalsIgnoreCase("remove")) {
+                //跳转删除
+                mySQL.pointdelete(sender, args[3], args[4], args[5]);
+            } else if (args[2].equalsIgnoreCase("select")) {
                 //跳转增加全体
-            } else if (args[1].equalsIgnoreCase("select")) {
+                mySQL.pointadd(sender, args[3], args[4], args[5]);
+            } else if (args[2].equalsIgnoreCase("clear")) {
                 //跳转增加全体
-            } else if (args[1].equalsIgnoreCase("clear")) {
-                //跳转增加全体
+                mySQL.pointadd(sender, args[3], args[4], args[5]);
             }
         }
     }
