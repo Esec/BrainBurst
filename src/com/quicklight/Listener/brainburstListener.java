@@ -70,34 +70,59 @@ public class brainburstListener implements Listener {
         }
     }
 
-/*    @EventHandler
-    void onM(InventoryClickEvent e){
-        if(e.getClickedInventory().getName().equals("我是一个GUI")){
+    @EventHandler
+    void onM(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§6§lBrainBurst")) {
             e.setCancelled(true);//禁止拖动
-            if(e.getCurrentItem()!=null) {//点到空气报错
-            if(e.getCurrentItem().getItemMeta().hasDisplayName()) {//判断是不是有名字
-            if(e.getCurrentItem().getItemMeta().getDisplayName().equals("我是个按钮")){
-                e.getWhoClicked().sendMessage("你点了我");
-            }
-            }
+            if (e.getCurrentItem() != null) {//点到空气报错
+                if (e.getCurrentItem().getItemMeta().hasDisplayName()) {//判断是不是有名字
+                    if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化功能")) {
+                        e.getWhoClicked().sendMessage("你点了强化");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l进化功能")) {
+                        e.getWhoClicked().sendMessage("你点了进化");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l属性功能")) {
+                        e.getWhoClicked().sendMessage("你点了属性");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l洗练功能")) {
+                        e.getWhoClicked().sendMessage("你点了洗练");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l精炼功能")) {
+                        e.getWhoClicked().sendMessage("你点了精炼");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l境界功能")) {
+                        e.getWhoClicked().sendMessage("你点了境界");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l称号功能")) {
+                        e.getWhoClicked().sendMessage("你点了称号");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l打孔功能")) {
+                        e.getWhoClicked().sendMessage("你点了打孔");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l镶嵌功能")) {
+                        e.getWhoClicked().sendMessage("你点了镶嵌");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l封印功能")) {
+                        e.getWhoClicked().sendMessage("你点了封印");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l合成功能")) {
+                        e.getWhoClicked().sendMessage("你点了合成");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l锻造功能")) {
+                        e.getWhoClicked().sendMessage("你点了锻造");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l疲劳功能")) {
+                        e.getWhoClicked().sendMessage("你点了疲劳");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l熟练功能")) {
+                        e.getWhoClicked().sendMessage("你点了熟练");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l分解功能")) {
+                        e.getWhoClicked().sendMessage("你点了分解");
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l翅膀功能")) {
+                        e.getWhoClicked().sendMessage("你点了翅膀");
+                    }
+                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l性别功能")) {
+                        e.getWhoClicked().sendMessage("你点了性别");
+                    }
+                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l渡劫功能")) {
+                        e.getWhoClicked().sendMessage("你点了渡劫");
+                    }
+                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l飞升功能")) {
+                        e.getWhoClicked().sendMessage("你点了飞升");
+                    }
+                    else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l商城功能")) {
+                        e.getWhoClicked().sendMessage("你点了商城");
+                    }
+                }
             }
         }
     }
-
-    void onCommand(Player p) {
-        Inventory inv = Bukkit.createInventory(p, 9, "我是一个GUI");
-        p.openInventory(inv);
-        ItemStack button1 = new ItemStack(Material.BOOK);
-        ItemMeta meta = button1.getItemMeta();
-        meta.setDisplayName("我是一个按钮");
-        meta.setLore(new ArrayList<String>() {
-            {
-                add("我是第一行介绍");
-                add("我是第二行介绍");
-            }
-        });
-        button1.setItemMeta(meta);//这个很重要 相当于保存
-        inv.addItem(button1);
-        //禁止拿下来
-    }*/
 }

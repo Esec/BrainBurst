@@ -18,6 +18,15 @@ public class commands {
 
     //玩家指令设计为GUI
     public void menu(CommandSender sender, Command command, String label, String[] args, MySQL mySQL) {
+        if (args.length == 1) {
+            sender.sendMessage(main.getPr());
+            sender.sendMessage("§a§l/" + label + " menu player      §d§l-§e§l 打开面板");
+        } else if (args.length >= 2) {
+            if (args[1].equalsIgnoreCase("player")) {
+                //跳转GUI
+                mySQL.playergui(sender);
+            }
+        }
     }
 
     //管理员指令
