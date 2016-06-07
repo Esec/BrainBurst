@@ -60,25 +60,6 @@ public class MySQL {
 
     }
 
-    //玩家加入服务器检测
-    public void joinserver(String name) {
-        try {
-            connection = openConnection();
-            String sql = "SELECT * FROM brainburst WHERE username=?";
-            statement = connection.prepareStatement(sql);
-            statement.setString(1, name);
-            rs = statement.executeQuery();
-            //如果不存在
-            if (!rs.next()) {
-                sql = "INSERT INTO brainburst (username) VALUES('" + name + "')";
-                statement = connection.prepareStatement(sql);
-                statement.executeUpdate(sql);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     //增加指定玩家指定货币
     public void pointadd(CommandSender sender, String arg, String arg1, String arg2) {
         int score = 0;
@@ -114,6 +95,64 @@ public class MySQL {
             }
         } catch (SQLException e1) {
             sender.sendMessage(Main.prefix + "§4§l查询失败请检查数据库连接");
+        }
+    }
+
+    //玩家PVP奖惩
+    public void pvp(String killer, String killed) {
+        int hun, zui;
+        try {
+            connection = openConnection();
+            //击杀
+            String sql = "SELECT hun,zui FROM brainburst WHERE username='" + killer + "';";
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                hun = rs.getInt(1);
+                zui = rs.getInt(2);
+                sql = "UPDATE brainburst SET (hun,zui) VALUES(" + hun + "+1," + zui + "+10)";
+                statement = connection.prepareStatement(sql);
+                int i = statement.executeUpdate();
+                if (i == 1) {
+                   Bukkit.getPlayer(killer).sendMessage(main.getPr() + "你击杀了" + killed);
+                }
+            }
+
+            //被击杀
+            sql = "SELECT hun,zui FROM brainburst WHERE username='" + killed + "';";
+            statement = connection.prepareStatement(sql);
+            rs = statement.executeQuery();
+            if (rs.next()) {
+                hun = rs.getInt(1);
+                zui = rs.getInt(2);
+                sql = "UPDATE brainburst SET (hun,zui) VALUES(" + hun + "-2," + zui + "-20)";
+                statement = connection.prepareStatement(sql);
+                int i = statement.executeUpdate();
+                if (i == 1) {
+                    Bukkit.getPlayer(killed).sendMessage(main.getPr() + "你被" + killer + "击杀了");
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //玩家加入服务器检测
+    public void joinserver(String name) {
+        try {
+            connection = openConnection();
+            String sql = "SELECT * FROM brainburst WHERE username=?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, name);
+            rs = statement.executeQuery();
+            //如果不存在
+            if (!rs.next()) {
+                sql = "INSERT INTO brainburst (username) VALUES('" + name + "')";
+                statement = connection.prepareStatement(sql);
+                statement.executeUpdate(sql);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -35,12 +35,13 @@ public class brainburstListener implements Listener {
     @EventHandler
     void onChat(PlayerDeathEvent e) {
         if (e.getEntity().getKiller() != null) {
+            //killer 击杀者 killed被击杀者
             Player killer = e.getEntity().getKiller();
             Player killed = e.getEntity();
+            mysql.pvp(killer.getName(),killed.getName());
             if (map.containsKey(killed)) {
                 map.put(killed, map.get(killed) + 1);
                 if (map.get(killed) == 1) {
-
                 }
             } else {
                 map.put(killed, 1);
