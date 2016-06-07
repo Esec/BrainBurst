@@ -1,0 +1,7 @@
+mysql:
+    # MySql 数据库地址
+    datebase: jdbc:mysql://127.0.0.1:3306/java25
+    # MySql 用户名
+    user: root
+    # MySql 密码
+    password: 'root'

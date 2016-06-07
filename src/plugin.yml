@@ -1,0 +1,14 @@
+name: BrainBurst
+main: com.quicklight.BrainBurst.Main
+version: 0.1
+prefix: 加速世界
+commands:
+  BrainBurst:
+    aliase: [bb,burstlink,bl]
+    permission: brainburst.use
+    permission-message: §c[加速世界]§4你没有权限这么做
+    usage: |
+      §1§m  §2§m  §3§m  §4§m  §5§m  §6§m  §7§m  §8§m  §9§m  §0§m  §6§l[§a§l加速世界§6§l]§0§m  §9§m  §8§m  §7§m  §6§m  §5§m  §4§m  §3§m  §2§m  §1§m
+      §a§l/<command> menu       §d§l-§e§l 打开BB菜单
+      §a§l/<command> admin     §d§l-§e§l 管理员指令
+      §a§l/<command> reload     §d§l-§e§l 插件重载

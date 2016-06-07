@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="BrainBurst">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="BrainBurst.jar">
+      <element id="module-output" name="BrainBurst" />
+    </root>
+  </artifact>
+</component>
