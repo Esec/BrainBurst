@@ -715,14 +715,6 @@ public class MySQL {
         inv.setItem(4, queding);
     }
 
-    public void qianghua(CommandSender sender){
-        Player p;
-        if (sender instanceof Player) {
-            p = (Player) sender;
-        } else {
-            return;
-        }
-    }
     public void xiongjiagui(CommandSender sender) {
         Player p;
         if (sender instanceof Player) {
