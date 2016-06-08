@@ -23,6 +23,7 @@ public class MySQL {
     Connection connection = null;
     ResultSet rs = null;
     String brainburst = "CREATE TABLE IF NOT EXISTS`brainburst`(`id` int(11) NOT NULL auto_increment, `username` varchar(255) NOT NULL, `hun` double(11,2) NOT NULL default '100.00', `zui` double(11,2) default '200.00', `lian` double(11,2) default '0.00', PRIMARY KEY  (`id`)) ENGINE=MyISAM DEFAULT CHARSET=gbk;";
+    String welcome = " §2§m§l  §3§m§l  §4§lWelcome §5§lto §7§lthe §6§lAccel World§3§m§l  §2§m§l §2§m§l ";
 
     public MySQL(Main main) {
         this.main = main;
@@ -318,6 +319,7 @@ public class MySQL {
         }
     }
 
+    //playergui
     public void playergui(CommandSender sender) {
         Player p;
         if (sender instanceof Player) {
@@ -325,7 +327,7 @@ public class MySQL {
         } else {
             return;
         }
-        Inventory inv = Bukkit.createInventory(p, 36, " §2§m§l  §3§m§l  §4§lWelcome §5§lto §7§lthe §6§lAccel World§3§m§l  §2§m§l §2§m§l ");
+        Inventory inv = Bukkit.createInventory(p, 36, welcome);
         p.openInventory(inv);
         ItemStack qianghua = new ItemStack(Material.ANVIL);
         ItemMeta meta = qianghua.getItemMeta();
@@ -546,5 +548,71 @@ public class MySQL {
         });
         shop.setItemMeta(meta);
         inv.setItem(35, shop);
+    }
+
+    //qianghuagui
+    public void qianghuagui(CommandSender sender) {
+        Player p;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        } else {
+            return;
+        }
+        Inventory inv = Bukkit.createInventory(p, 9, "§5§l强化功能");
+        p.openInventory(inv);
+        ItemStack wuqi = new ItemStack(Material.ARROW);
+        ItemMeta meta = wuqi.getItemMeta();
+        meta.setDisplayName("§5§l强化武器");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§c§l点击开始强化武器");
+            }
+        });
+        wuqi.setItemMeta(meta);
+        inv.setItem(0, wuqi);
+
+        ItemStack toukui = new ItemStack(Material.DIAMOND_HELMET);
+        meta = toukui.getItemMeta();
+        meta.setDisplayName("§5§l强化头盔");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§c§l点击开始强化头盔");
+            }
+        });
+        toukui.setItemMeta(meta);
+        inv.setItem(2, toukui);
+
+        ItemStack xiongjia = new ItemStack(Material.DIAMOND_CHESTPLATE);
+        meta = xiongjia.getItemMeta();
+        meta.setDisplayName("§5§l强化胸甲");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§c§l点击开始强化胸甲");
+            }
+        });
+        xiongjia.setItemMeta(meta);
+        inv.setItem(4, xiongjia);
+
+        ItemStack hutui = new ItemStack(Material.DIAMOND_LEGGINGS);
+        meta = hutui.getItemMeta();
+        meta.setDisplayName("§5§l强化护腿");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§c§l点击开始强化护腿");
+            }
+        });
+        hutui.setItemMeta(meta);
+        inv.setItem(6, hutui);
+
+        ItemStack xiezi = new ItemStack(Material.DIAMOND_BOOTS);
+        meta = xiezi.getItemMeta();
+        meta.setDisplayName("§5§l强化鞋子");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§c§l点击开始强化鞋子");
+            }
+        });
+        xiezi.setItemMeta(meta);
+        inv.setItem(8, xiezi);
     }
 }
