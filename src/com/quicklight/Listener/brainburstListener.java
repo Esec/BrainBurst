@@ -71,30 +71,13 @@ public class brainburstListener implements Listener {
     }
 
     @EventHandler
-    void qianghuagui(InventoryClickEvent e) {
-        if (e.getClickedInventory().getName().equals("§5§l强化功能")) {
-            if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化武器")) {
-                e.getWhoClicked().sendMessage("你点了强化武器");
-            } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化头盔")) {
-                e.getWhoClicked().sendMessage("你点了强化头盔");
-            } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化胸甲")) {
-                e.getWhoClicked().sendMessage("你点了强化胸甲");
-            } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化护腿")) {
-                e.getWhoClicked().sendMessage("你点了强化护腿");
-            } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化鞋子")) {
-                e.getWhoClicked().sendMessage("你点了强化鞋子");
-            }
-        }
-    }
-
-    @EventHandler
     void playergui(InventoryClickEvent e) {
         if (e.getClickedInventory().getName().equals(" §2§m§l  §3§m§l  §4§lWelcome §5§lto §7§lthe §6§lAccel World§3§m§l  §2§m§l §2§m§l ")) {
             e.setCancelled(true);//禁止拖动
             if (e.getCurrentItem() != null) {//点到空气报错
                 if (e.getCurrentItem().getItemMeta().hasDisplayName()) {//判断是不是有名字
                     if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化功能")) {
-                        qianghuagui(e);
+                        mysql.qianghuagui(e.getWhoClicked());
                     } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l进化功能")) {
                         e.getWhoClicked().sendMessage("你点了进化");
                     } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l属性功能")) {
@@ -135,6 +118,69 @@ public class brainburstListener implements Listener {
                         e.getWhoClicked().sendMessage("你点了商城");
                     }
                 }
+            }
+        }
+    }
+
+    @EventHandler
+    void qianghuagui(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§5§l强化功能")) {
+            e.setCancelled(true);//禁止拖动
+            if (e.getCurrentItem() != null) {//点到空气报错
+                if (e.getCurrentItem().getItemMeta().hasDisplayName()) {//判断是不是有名字
+                    if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化武器")) {
+                        mysql.wuqigui(e.getWhoClicked());
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化头盔")) {
+                        mysql.toukuigui(e.getWhoClicked());
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化胸甲")) {
+                        mysql.xiongjiagui(e.getWhoClicked());
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化护腿")) {
+                        mysql.hutuigui(e.getWhoClicked());
+                    } else if (e.getCurrentItem().getItemMeta().getDisplayName().equals("§5§l强化鞋子")) {
+                        mysql.xiezigui(e.getWhoClicked());
+                    }
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    void wuqigui(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
+            e.setCancelled(true);//禁止拖动
+            if (e.getCurrentItem() != null) {//点到空气报错
+            }
+        }
+    }
+
+    void toukuigui(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
+            e.setCancelled(true);//禁止拖动
+            if (e.getCurrentItem() != null) {//点到空气报错
+            }
+        }
+    }
+
+    void xiongjiagui(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
+            e.setCancelled(true);//禁止拖动
+            if (e.getCurrentItem() != null) {//点到空气报错
+            }
+        }
+    }
+
+    void hutuigui(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
+            e.setCancelled(true);//禁止拖动
+            if (e.getCurrentItem() != null) {//点到空气报错
+            }
+        }
+    }
+
+    void xiezigui(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
+            e.setCancelled(true);//禁止拖动
+            if (e.getCurrentItem() != null) {//点到空气报错
             }
         }
     }

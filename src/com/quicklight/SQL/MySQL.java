@@ -1,11 +1,14 @@
 package com.quicklight.SQL;
 
 import com.quicklight.BrainBurst.Main;
+import net.minecraft.server.v1_9_R1.BlockWorkbench;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.AnvilInventory;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -23,7 +26,6 @@ public class MySQL {
     Connection connection = null;
     ResultSet rs = null;
     String brainburst = "CREATE TABLE IF NOT EXISTS`brainburst`(`id` int(11) NOT NULL auto_increment, `username` varchar(255) NOT NULL, `hun` double(11,2) NOT NULL default '100.00', `zui` double(11,2) default '200.00', `lian` double(11,2) default '0.00', PRIMARY KEY  (`id`)) ENGINE=MyISAM DEFAULT CHARSET=gbk;";
-    String welcome = " §2§m§l  §3§m§l  §4§lWelcome §5§lto §7§lthe §6§lAccel World§3§m§l  §2§m§l §2§m§l ";
 
     public MySQL(Main main) {
         this.main = main;
@@ -327,7 +329,7 @@ public class MySQL {
         } else {
             return;
         }
-        Inventory inv = Bukkit.createInventory(p, 36, welcome);
+        Inventory inv = Bukkit.createInventory(p, 36, " §2§m§l  §3§m§l  §4§lWelcome §5§lto §7§lthe §6§lAccel World§3§m§l  §2§m§l §2§m§l ");
         p.openInventory(inv);
         ItemStack qianghua = new ItemStack(Material.ANVIL);
         ItemMeta meta = qianghua.getItemMeta();
@@ -558,6 +560,7 @@ public class MySQL {
         } else {
             return;
         }
+        p.closeInventory();
         Inventory inv = Bukkit.createInventory(p, 9, "§5§l强化功能");
         p.openInventory(inv);
         ItemStack wuqi = new ItemStack(Material.ARROW);
@@ -614,5 +617,160 @@ public class MySQL {
         });
         xiezi.setItemMeta(meta);
         inv.setItem(8, xiezi);
+    }
+
+    public void wuqigui(CommandSender sender) {
+        Player p;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        } else {
+            return;
+        }
+        p.closeInventory();
+        Inventory inv = Bukkit.createInventory(p, 9, "§5§l强化武器");
+        p.openInventory(inv);
+        ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
+        ItemMeta meta = zhanwei.getItemMeta();
+        meta.setDisplayName("  ");
+        inv.setItem(0, zhanwei);
+        inv.setItem(1, zhanwei);
+        inv.setItem(2, zhanwei);
+        inv.setItem(6, zhanwei);
+        inv.setItem(7, zhanwei);
+        inv.setItem(8, zhanwei);
+        ItemStack queding = new ItemStack(Material.REDSTONE_TORCH_ON);
+        meta = queding.getItemMeta();
+        meta.setDisplayName("§5§l点击强化");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§6§l武器§c§l<<<<§5§l||§c§l>>>§6§l强化石");
+            }
+        });
+        queding.setItemMeta(meta);
+        inv.setItem(4, queding);
+    }
+
+    public void xiezigui(CommandSender sender) {
+        Player p;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        } else {
+            return;
+        }
+        p.closeInventory();
+        Inventory inv = Bukkit.createInventory(p, 9, "§5§l强化鞋子");
+        p.openInventory(inv);
+        ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
+        ItemMeta meta = zhanwei.getItemMeta();
+        meta.setDisplayName("  ");
+        inv.setItem(0, zhanwei);
+        inv.setItem(1, zhanwei);
+        inv.setItem(2, zhanwei);
+        inv.setItem(6, zhanwei);
+        inv.setItem(7, zhanwei);
+        inv.setItem(8, zhanwei);
+        ItemStack queding = new ItemStack(Material.REDSTONE_TORCH_ON);
+        meta = queding.getItemMeta();
+        meta.setDisplayName("§5§l点击强化");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§6§l鞋子§c§l<<<<§5§l||§c§l>>>§6§l强化石");
+            }
+        });
+        queding.setItemMeta(meta);
+        inv.setItem(4, queding);
+    }
+
+    public void toukuigui(CommandSender sender) {
+        Player p;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        } else {
+            return;
+        }
+        p.closeInventory();
+        Inventory inv = Bukkit.createInventory(p, 9, "§5§l强化头盔");
+        p.openInventory(inv);
+        ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
+        ItemMeta meta = zhanwei.getItemMeta();
+        meta.setDisplayName("  ");
+        inv.setItem(0, zhanwei);
+        inv.setItem(1, zhanwei);
+        inv.setItem(2, zhanwei);
+        inv.setItem(6, zhanwei);
+        inv.setItem(7, zhanwei);
+        inv.setItem(8, zhanwei);
+        ItemStack queding = new ItemStack(Material.REDSTONE_TORCH_ON);
+        meta = queding.getItemMeta();
+        meta.setDisplayName("§5§l点击强化");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§6§l头盔§c§l<<<<§5§l||§c§l>>>§6§l强化石");
+            }
+        });
+        queding.setItemMeta(meta);
+        inv.setItem(4, queding);
+    }
+
+    public void xiongjiagui(CommandSender sender) {
+        Player p;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        } else {
+            return;
+        }
+        p.closeInventory();
+        Inventory inv = Bukkit.createInventory(p, 9, "§5§l强化胸甲");
+        p.openInventory(inv);
+        ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
+        ItemMeta meta = zhanwei.getItemMeta();
+        meta.setDisplayName("  ");
+        inv.setItem(0, zhanwei);
+        inv.setItem(1, zhanwei);
+        inv.setItem(2, zhanwei);
+        inv.setItem(6, zhanwei);
+        inv.setItem(7, zhanwei);
+        inv.setItem(8, zhanwei);
+        ItemStack queding = new ItemStack(Material.REDSTONE_TORCH_ON);
+        meta = queding.getItemMeta();
+        meta.setDisplayName("§5§l点击强化");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§6§l胸甲§c§l<<<<§5§l||§c§l>>>§6§l强化石");
+            }
+        });
+        queding.setItemMeta(meta);
+        inv.setItem(4, queding);
+    }
+
+    public void hutuigui(CommandSender sender) {
+        Player p;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        } else {
+            return;
+        }
+        p.closeInventory();
+        Inventory inv = Bukkit.createInventory(p, 9, "§5§l强化护腿");
+        p.openInventory(inv);
+        ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
+        ItemMeta meta = zhanwei.getItemMeta();
+        meta.setDisplayName("  ");
+        inv.setItem(0, zhanwei);
+        inv.setItem(1, zhanwei);
+        inv.setItem(2, zhanwei);
+        inv.setItem(6, zhanwei);
+        inv.setItem(7, zhanwei);
+        inv.setItem(8, zhanwei);
+        ItemStack queding = new ItemStack(Material.REDSTONE_TORCH_ON);
+        meta = queding.getItemMeta();
+        meta.setDisplayName("§5§l点击强化");
+        meta.setLore(new ArrayList<String>() {
+            {
+                add("§6§l护腿§c§l<<<<§5§l||§c§l>>>§6§l强化石");
+            }
+        });
+        queding.setItemMeta(meta);
+        inv.setItem(4, queding);
     }
 }
