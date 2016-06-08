@@ -632,6 +632,7 @@ public class MySQL {
         ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
         ItemMeta meta = zhanwei.getItemMeta();
         meta.setDisplayName("  ");
+        zhanwei.setItemMeta(meta);
         inv.setItem(0, zhanwei);
         inv.setItem(1, zhanwei);
         inv.setItem(2, zhanwei);
@@ -663,6 +664,7 @@ public class MySQL {
         ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
         ItemMeta meta = zhanwei.getItemMeta();
         meta.setDisplayName("  ");
+        zhanwei.setItemMeta(meta);
         inv.setItem(0, zhanwei);
         inv.setItem(1, zhanwei);
         inv.setItem(2, zhanwei);
@@ -694,6 +696,7 @@ public class MySQL {
         ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
         ItemMeta meta = zhanwei.getItemMeta();
         meta.setDisplayName("  ");
+        zhanwei.setItemMeta(meta);
         inv.setItem(0, zhanwei);
         inv.setItem(1, zhanwei);
         inv.setItem(2, zhanwei);
@@ -712,6 +715,14 @@ public class MySQL {
         inv.setItem(4, queding);
     }
 
+    public void qianghua(CommandSender sender){
+        Player p;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        } else {
+            return;
+        }
+    }
     public void xiongjiagui(CommandSender sender) {
         Player p;
         if (sender instanceof Player) {
@@ -725,6 +736,7 @@ public class MySQL {
         ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
         ItemMeta meta = zhanwei.getItemMeta();
         meta.setDisplayName("  ");
+        zhanwei.setItemMeta(meta);
         inv.setItem(0, zhanwei);
         inv.setItem(1, zhanwei);
         inv.setItem(2, zhanwei);
@@ -756,6 +768,7 @@ public class MySQL {
         ItemStack zhanwei = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 1);
         ItemMeta meta = zhanwei.getItemMeta();
         meta.setDisplayName("  ");
+        zhanwei.setItemMeta(meta);
         inv.setItem(0, zhanwei);
         inv.setItem(1, zhanwei);
         inv.setItem(2, zhanwei);

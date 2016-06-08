@@ -148,39 +148,45 @@ public class brainburstListener implements Listener {
     void wuqigui(InventoryClickEvent e) {
         if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
             e.setCancelled(true);//禁止拖动
-            if (e.getCurrentItem() != null) {//点到空气报错
-            }
         }
     }
 
+    @EventHandler
     void toukuigui(InventoryClickEvent e) {
         if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
             e.setCancelled(true);//禁止拖动
-            if (e.getCurrentItem() != null) {//点到空气报错
-            }
         }
     }
 
+    @EventHandler
     void xiongjiagui(InventoryClickEvent e) {
-        if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
+        if (e.getClickedInventory().getName().equals("§5§l强化胸甲")) {
             e.setCancelled(true);//禁止拖动
-            if (e.getCurrentItem() != null) {//点到空气报错
-            }
         }
     }
 
+    @EventHandler
     void hutuigui(InventoryClickEvent e) {
         if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
             e.setCancelled(true);//禁止拖动
-            if (e.getCurrentItem() != null) {//点到空气报错
-            }
         }
     }
 
+    @EventHandler
     void xiezigui(InventoryClickEvent e) {
         if (e.getClickedInventory().getName().equals("§5§l强化武器")) {
             e.setCancelled(true);//禁止拖动
-            if (e.getCurrentItem() != null) {//点到空气报错
+        }
+    }
+
+    @EventHandler
+    void qianghua(InventoryClickEvent e) {
+        if (e.getClickedInventory().getName().equals("§5§l点击强化")) {
+            e.setCancelled(true);//禁止拖动
+            if (e.getInventory().getItem(4).equals(Material.DIAMOND)) {
+                Bukkit.getServer().getConsoleSender().sendMessage("yes");
+            } else {
+                Bukkit.getServer().getConsoleSender().sendMessage("no");
             }
         }
     }
